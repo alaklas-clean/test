@@ -100,4 +100,58 @@
       if(parent) parent.style.display = 'none';
     });
   });
+
+  // Simple submit UX: immediately show confirmation and disable the submit button briefly
+  function showSimpleToast(msg){
+    var t = document.getElementById('formToast');
+    if(!t){
+      t = document.createElement('div');
+      t.id = 'formToast';
+      t.style.position = 'fixed';
+      t.style.left = '50%';
+      t.style.transform = 'translateX(-50%)';
+      t.style.bottom = '24px';
+      t.style.padding = '10px 16px';
+      t.style.borderRadius = '8px';
+      t.style.color = '#fff';
+      t.style.background = '#16a34a';
+      t.style.boxShadow = '0 6px 18px rgba(0,0,0,0.12)';
+      t.style.zIndex = 9999;
+      document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.style.opacity = '1';
+    clearTimeout(t._to);
+    t._to = setTimeout(function(){ t.style.opacity = '0'; }, 3000);
+  }
+
+  var serviceForms = document.querySelectorAll('form.service-form');
+  serviceForms.forEach(function(form){
+    form.addEventListener('submit', function(e){
+      var submitBtn = form.querySelector('button[type="submit"]');
+      if(submitBtn && submitBtn.disabled){
+        e.preventDefault();
+        return;
+      }
+
+      if(submitBtn){
+        submitBtn.disabled = true;
+        submitBtn.dataset.origText = submitBtn.textContent;
+        submitBtn.textContent = 'تم الارسال وشكرا';
+      }
+      var note = form.querySelector('.service-form-note');
+      if(note) note.textContent = 'تم الارسال وشكرا';
+      showSimpleToast('تم الارسال وشكرا');
+
+      // keep normal submit (targeted at hidden iframe) so data still posts.
+      // re-enable button after 7 seconds
+      setTimeout(function(){
+        if(submitBtn){
+          submitBtn.disabled = false;
+          submitBtn.textContent = submitBtn.dataset.origText || 'إرسال';
+        }
+        if(note) note.textContent = 'سيتم التواصل معك لتأكيد تفاصيل الطلب خلال 24 ساعة.';
+      }, 7000);
+    });
+  });
 })();
