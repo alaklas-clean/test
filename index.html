@@ -52,7 +52,12 @@ window.SERVICE_ENDPOINT = "https://script.google.com/macros/s/AKfycbyqIMY4gIHtzs
         <!-- Service form (top) - يظهر هنا عند الضغط على زر 'اطلب الخدمة' العلوي -->
         <div id="serviceFormWrapTop" style="display:none;margin-top:18px;max-width:720px;">
           <h3 class="service-form-title">اكمل بياناتك وسيتواصل معك فريق الدعم الخاص بنا</h3>
-          <form id="serviceFormTop" class="service-form" autocomplete="on">
+                  <form action="https://script.google.com/macros/s/AKfycbx3f2TGxOm0FUdOKhQZ-G2sMoa5jT2gTTHv05u70aKOtkRK7oOM0-DfbgZ45EDyhjw0lg/exec"
+  method="POST"
+  target="hidden_iframe"
+  class="service-form"
+  autocomplete="on"
+>
             <div style="display:flex;gap:12px;flex-wrap:wrap;">
               <input name="customerName" type="text" placeholder="الاسم الكامل" aria-label="الاسم" required style="flex:1;min-width:220px;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
               <input name="phone" type="tel" placeholder="رقم الجوال" aria-label="رقم الجوال" required style="flex:1;min-width:200px;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
@@ -213,6 +218,7 @@ window.SERVICE_ENDPOINT = "https://script.google.com/macros/s/AKfycbyqIMY4gIHtzs
     </footer>
   </main>
   <script src="main.js"></script> 
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;width:0;height:0;border:0;border:none;" aria-hidden="true"></iframe>
 </body>
 </html>
 
