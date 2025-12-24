@@ -176,39 +176,36 @@ window.SERVICE_ENDPOINT = "https://script.google.com/macros/s/AKfycbyqIMY4gIHtzs
       <!-- Service form (bottom) - يظهر هنا عند الضغط على زر 'اطلب الخدمة' السفلي -->
       <div id="serviceFormWrapBottom" style="display:none;margin-top:18px;max-width:720px;margin-left:auto;margin-right:auto;">
         <h3 class="service-form-title">ادخل بياناتك وسيتم التواصل معك في اسرع وقت</h3>
-         <form action="https://script.google.com/macros/s/AKfycbx3f2TGxOm0FUdOKhQZ-G2sMoa5jT2gTTHv05u70aKOtkRK7oOM0-DfbgZ45EDyhjw0lg/exec"
+          <form action="https://script.google.com/macros/s/AKfycbx3f2TGxOm0FUdOKhQZ-G2sMoa5jT2gTTHv05u70aKOtkRK7oOM0-DfbgZ45EDyhjw0lg/exec"
   method="POST"
   target="hidden_iframe"
   class="service-form"
   autocomplete="on"
 >
-  <div style="display:flex;gap:12px;flex-wrap:wrap;">
-    <input name="customerName" type="text" placeholder="الاسم الكامل" required>
-    <input name="phone" type="tel" placeholder="رقم الجوال" required>
-  </div>
-
-  <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;">
-    <input name="address" type="text" placeholder="العنوان">
-    <select name="serviceType">
-      <option value="نظافة منزل">نظافة منزل</option>
-      <option value="عزل أسطح">عزل أسطح</option>
-      <option value="تنظيف أفران">تنظيف أفران</option>
-      <option value="تنظيف سجاد">تنظيف سجاد</option>
-      <option value="مكافحة حشرات">مكافحة حشرات</option>
-    </select>
-  </div>
-
-  <div style="margin-top:12px;">
-    <textarea name="description" rows="4" placeholder="وصف الخدمة المطلوبة"></textarea>
-  </div>
-
-  <div style="margin-top:12px;display:flex;gap:12px;justify-content:flex-end;">
-    <button type="reset" class="btn ghost">إلغاء</button>
-    <button type="submit" class="btn btn-wide">إرسال</button>
-  </div>
-</form>
-        <!-- ملاحظة مرئية أسفل النموذج لتوضيح للمسؤول -->
-        <div class="service-form-note">ملاحظة: سيتم التواصل معك لتأكيد تفاصيل الطلب خلال 24 ساعة.</div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <input name="customerName" type="text" placeholder="الاسم الكامل" aria-label="الاسم" required style="flex:1;min-width:220px;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
+              <input name="phone" type="tel" placeholder="رقم الجوال" aria-label="رقم الجوال" required style="flex:1;min-width:200px;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
+            </div>
+            <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;">
+              <input name="address" type="text" placeholder="العنوان" aria-label="العنوان" style="flex:1;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
+              <select name="serviceType" aria-label="نوع الخدمة" style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);min-width:220px">
+                <option value="نظافة منزل">نظافة منزل</option>
+                <option value="عزل أسطح">عزل أسطح</option>
+                <option value="تنظيف أفران">تنظيف أفران</option>
+                <option value="تنظيف سجاد">تنظيف سجاد</option>
+                <option value="مكافحة حشرات">مكافحة حشرات</option>
+              </select>
+            </div>
+            <div style="margin-top:12px;">
+              <textarea name="description" rows="4" placeholder="وصف الخدمة المطلوبة" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)"></textarea>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:12px;justify-content:flex-end;">
+              <button type="button" class="btn ghost serviceCancel">إلغاء</button>
+              <button type="submit" class="btn btn-wide">إرسال</button>
+            </div>
+          </form>
+          <!-- ملاحظة مرئية أسفل النموذج لتوضيح للمسؤول -->
+          <div class="service-form-note">ملاحظة: سيتم التواصل معك لتأكيد تفاصيل الطلب خلال 24 ساعة.</div>
       <!-- End Service form (bottom) -->
       </div>
     </section>
